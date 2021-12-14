@@ -5,12 +5,16 @@ const Employee = require('./lib/Employee');
 const Manager = require('./lib/Manager');
 const Engineer = require('./lib/Engineer');
 const Intern = require('./lib/Intern');
+const { createInflate } = require('zlib');
+
+const myTeam = [];
+
 
 //begin program
 //init();
 
 function init() {
-
+    createManager();
 }
 
 function createManager() {
@@ -19,28 +23,31 @@ function createManager() {
             {
                 type: "input",
                 name: "name",
-                message: "What is the Managers name?",          
+                message: "What is the Managers name?"         
             },
             {
                 type: "input",
                 name: "empID",
-                message: "What is the Managers ID?",
+                message: "What is the Managers ID?"
             },
             {
                 type: "input",
                 name: "email",
-                message: "what is the Mnagers Email?",
+                message: "what is the Mnagers Email?"
             },
             {
                 type: "input",
                 name: "office",
-                message: "What is the Managers office number?", 
+                message: "What is the Managers office number?" 
             },
         ])
         .then((resp) => {
             console.log(resp);
             const manager = new Manager(resp.name, resp.empID, resp.email, resp.office);
             console.log(`This is the manager: ${manager}`);
+            myTeam.push(manager);
+            console.log(myTeam);
+            optionsList();
         })
 }
 
@@ -50,28 +57,31 @@ function createEngineer() {
             {
                 type: "input",
                 name: "name",
-                message: "What is the Engineer's name?",
+                message: "What is the Engineer's name?"
             },
             {
                 type: "input",
                 name: "empID",
-                message: "What is the Engineer's ID?",
+                message: "What is the Engineer's ID?"
             },
             {
                 type: "input",
                 name: "email",
-                message: "what is the Engineer's Email?",
+                message: "what is the Engineer's Email?"
             },
             {
                 type: "input",
                 name: "gitHub",
-                message: "What is the Engineer's GitHub username?", 
+                message: "What is the Engineer's GitHub username?" 
             },
         ])
-        .then((resp) =>{
+        .then((resp) => {
             console.log(resp);
             const engineer = new Engineer(resp.name, resp.empId, resp.email, resp.gitHub);
             console.log(`This is the engineer: ${engineer}`);
+            myTeam.push(engineer);
+            console.log(myTeam);
+            optionsList();
         })
 }
 
@@ -81,27 +91,62 @@ function createIntern() {
             {
                 type: "input",
                 name: "name",
-                message: "What is the Intern's name?",
+                message: "What is the Intern's name?"
             },
             {
                 type: "input",
                 name: "empID",
-                message: "What is the Intern's ID?",
+                message: "What is the Intern's ID?"
             },
             {
                 type: "input",
                 name: "email",
-                message: "what is the Intern's Email?",
+                message: "what is the Intern's Email?"
             },
             {
                 type: "input",
                 name: "school",
-                message: "What is the Intern's school?", 
+                message: "What is the Intern's school?" 
             },
         ])
-        .then((resp) =>{
+        .then((resp) => {
             console.log(resp);
             const intern = new Intern(resp.name, resp.empId, resp.email, resp.school);
             console.log(`This is the Intern: ${intern}`);
+            myTeam.push(intern);
+            console.log(myTeam);
+            optionsList();
         })
+}
+
+function optionsList() {
+    inquirer
+        .prompt ([
+            {
+                type: "list",
+                name: "choice",
+                message: "What would you like to do?",
+                chocies:["Add an Engineer to the team.", "Add an Intern to the team.", "My team is complete."]
+            }
+        ])
+        .then((resp) => {
+            switch (resp.choice) {
+                case "Add an Engineer to the team.":
+                    createEngineer();
+                    break;
+                case "Add an Intern to the team.":
+                    createIntern();
+                    break;
+                case "My team is complete.":
+                    createHTML("index.html", template-Helper(myTeam));
+
+            }
+        })
+}
+
+function createHTML(fileName, data) {
+    fs.writeFile(fileName, data, (error) => {
+        if(error) throw error;
+        console.log("Team page is being made!");
+    })
 }
