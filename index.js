@@ -5,13 +5,13 @@ const Employee = require('./lib/Employee');
 const Manager = require('./lib/Manager');
 const Engineer = require('./lib/Engineer');
 const Intern = require('./lib/Intern');
-const { createInflate } = require('zlib');
+
 
 const myTeam = [];
 
 
 //begin program
-//init();
+init();
 
 function init() {
     createManager();
@@ -139,7 +139,6 @@ function optionsList() {
                     break;
                 case "My team is complete.":
                     createHTML("index.html", template-Helper(myTeam));
-
             }
         })
 }
