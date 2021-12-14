@@ -40,10 +40,11 @@ function createManager() {
         .then((resp) => {
             console.log(resp);
             const manager = new Manager(resp.name, resp.empID, resp.email, resp.office);
+            console.log(`This is the manager: ${manager}`);
         })
 }
 
-function createEngineer(){
+function createEngineer() {
     inquirer
         .prompt([
             {
@@ -70,5 +71,37 @@ function createEngineer(){
         .then((resp) =>{
             console.log(resp);
             const engineer = new Engineer(resp.name, resp.empId, resp.email, resp.gitHub);
+            console.log(`This is the engineer: ${engineer}`);
+        })
+}
+
+function createIntern() {
+    inquirer
+        .prompt([
+            {
+                type: "input",
+                name: "name",
+                message: "What is the Intern's name?",
+            },
+            {
+                type: "input",
+                name: "empID",
+                message: "What is the Intern's ID?",
+            },
+            {
+                type: "input",
+                name: "email",
+                message: "what is the Intern's Email?",
+            },
+            {
+                type: "input",
+                name: "school",
+                message: "What is the Intern's school?", 
+            },
+        ])
+        .then((resp) =>{
+            console.log(resp);
+            const intern = new Intern(resp.name, resp.empId, resp.email, resp.school);
+            console.log(`This is the Intern: ${intern}`);
         })
 }
