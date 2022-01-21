@@ -14,31 +14,36 @@ const myTeam = [];
 init();
 
 function init() {
-    createManager();
+    console.log("Hey! Start me!");
+    createManagerProfile();
 }
 
-function createManager() {
+function createManagerProfile() {
     inquirer
         .prompt([
             {
                 type: "input",
                 name: "name",
-                message: "What is the Managers name?"         
+                message: "What is the Managers name?",         
+                validate: (resp) => {}
             },
             {
                 type: "input",
                 name: "empID",
-                message: "What is the Managers ID?"
+                message: "What is the Managers ID?",
+                validate: (resp) => {}
             },
             {
                 type: "input",
                 name: "email",
-                message: "what is the Mnagers Email?"
+                message: "what is the Mnagers Email?",
+                validate: (resp) => {}
             },
             {
                 type: "input",
                 name: "office",
-                message: "What is the Managers office number?" 
+                message: "What is the Managers office number?", 
+                validate: (resp) => {}
             },
         ])
         .then((resp) => {
@@ -51,28 +56,32 @@ function createManager() {
         })
 }
 
-function createEngineer() {
+function createEngineerProfile() {
     inquirer
         .prompt([
             {
                 type: "input",
                 name: "name",
-                message: "What is the Engineer's name?"
+                message: "What is the Engineer's name?",
+                validate: (resp) => {}
             },
             {
                 type: "input",
                 name: "empID",
-                message: "What is the Engineer's ID?"
+                message: "What is the Engineer's ID?",
+                validate: (resp) => {}
             },
             {
                 type: "input",
                 name: "email",
-                message: "what is the Engineer's Email?"
+                message: "what is the Engineer's Email?",
+                validate: (resp) => {}
             },
             {
                 type: "input",
                 name: "gitHub",
-                message: "What is the Engineer's GitHub username?" 
+                message: "What is the Engineer's GitHub username?",
+                validate: (resp) => {} 
             },
         ])
         .then((resp) => {
@@ -85,28 +94,32 @@ function createEngineer() {
         })
 }
 
-function createIntern() {
+function createInternProfile() {
     inquirer
         .prompt([
             {
                 type: "input",
                 name: "name",
-                message: "What is the Intern's name?"
+                message: "What is the Intern's name?",
+                validate: (resp) => {}
             },
             {
                 type: "input",
                 name: "empID",
-                message: "What is the Intern's ID?"
+                message: "What is the Intern's ID?",
+                validate: (resp) => {}
             },
             {
                 type: "input",
                 name: "email",
-                message: "what is the Intern's Email?"
+                message: "what is the Intern's Email?",
+                validate: (resp) => {}
             },
             {
                 type: "input",
                 name: "school",
-                message: "What is the Intern's school?" 
+                message: "What is the Intern's school?",
+                validate: (resp) => {}
             },
         ])
         .then((resp) => {
@@ -132,10 +145,10 @@ function optionsList() {
         .then((resp) => {
             switch (resp.choice) {
                 case "Add an Engineer to the team.":
-                    createEngineer();
+                    createEngineerProfile();
                     break;
                 case "Add an Intern to the team.":
-                    createIntern();
+                    createInternProfile();
                     break;
                 case "My team is complete.":
                     createHTML("index.html", template-Helper(myTeam));
