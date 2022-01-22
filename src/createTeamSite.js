@@ -1,6 +1,11 @@
-<!DOCTYPE html>
 
-<html lang="en-US">
+
+
+function createTeamSite(teamData) {
+
+    return `
+    <!DOCTYPE html>
+    <html lang="en-US">
 
     <head>
         <meta charset="UTF-8" />
@@ -9,7 +14,7 @@
         
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"></link>
         <link rel="stylesheet" href="" />
-        <title>Team Profile</title>
+        <title>My Team Profile</title>
     </head>
 
     <body>
@@ -23,4 +28,8 @@
 
     </body>
 
-</html>
+</html>  `;
+}
+
+
+module.exports = createTeamSite;
