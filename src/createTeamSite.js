@@ -1,4 +1,42 @@
+function createTeamProfiles(teamData){
+    let team = teamData;
+    console.log(team);
 
+    const myTeam = [];
+
+    for (let i = 0; i < team.length; i++){
+        const teamMember = team[i];
+        const memberRole = teamMember.getRole();
+
+        if(memberRole === "Manager") {
+            const managerProfile = createManagerProfile(teamMember);
+            myTeam.push(managerProfile);
+        }
+
+        if(memberRole === "Engineer") {
+            const engineerProfile = createEngineerProfile(teamMember);
+            myTeam.push(engineerProfile);
+        }
+
+        if(memberRole === "Intern") {
+            const internProfile = createInternProfile(teamMember);
+            myTeam.push(internProfile);
+        }
+    }
+
+}
+
+function createManagerProfile(){
+
+}
+
+function createEngineerProfile(){
+    
+}
+
+function createInternProfile(){
+    
+}
 
 
 function createTeamSite(teamData) {
@@ -18,12 +56,12 @@ function createTeamSite(teamData) {
     </head>
 
     <body>
-        <header class="headerEl">
+        <header class="container-fluid">
 
         </header>
 
-        <main class="mainEl">
-
+        <main class="container-fluid">
+            ${createTeamProfiles(teamData)}
         </main>
 
     </body>
