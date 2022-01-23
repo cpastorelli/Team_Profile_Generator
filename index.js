@@ -15,7 +15,7 @@ const myTeam = [];
 init();
 
 function init() {
-    console.log("Hey! Start me!");
+    console.log("Hey there! Lets talk about your team for a bit.");
     createManagerProfile();
 }
 
@@ -30,7 +30,7 @@ function createManagerProfile() {
             },
             {
                 type: "input",
-                name: "empID",
+                name: "managerID",
                 message: "What is the Managers ID?",
                 // validate: (resp) => {}
             },
@@ -49,10 +49,9 @@ function createManagerProfile() {
         ])
         .then((resp) => {
             console.log(resp);
-            const manager = new Manager(resp.name, resp.empID, resp.email, resp.office);
+            const manager = new Manager(resp.name, resp.managerID, resp.email, resp.office);
             console.log(`This is the manager: ${manager.name}`);
             myTeam.push(manager);
-            console.log(myTeam);
             optionsList();
         })
 }
@@ -68,7 +67,7 @@ function createEngineerProfile() {
             },
             {
                 type: "input",
-                name: "empID",
+                name: "engineerID",
                 message: "What is the Engineer's ID?",
                 // validate: (resp) => {}
             },
@@ -87,10 +86,9 @@ function createEngineerProfile() {
         ])
         .then((resp) => {
             console.log(resp);
-            const engineer = new Engineer(resp.name, resp.empId, resp.email, resp.gitHub);
+            const engineer = new Engineer(resp.name, resp.engineerID, resp.email, resp.gitHub);
             console.log(`This is the engineer: ${engineer}`);
             myTeam.push(engineer);
-            console.log(myTeam);
             optionsList();
         })
 }
@@ -106,7 +104,7 @@ function createInternProfile() {
             },
             {
                 type: "input",
-                name: "empID",
+                name: "internID",
                 message: "What is the Intern's ID?",
                 // validate: (resp) => {}
             },
@@ -125,10 +123,9 @@ function createInternProfile() {
         ])
         .then((resp) => {
             console.log(resp);
-            const intern = new Intern(resp.name, resp.empId, resp.email, resp.school);
+            const intern = new Intern(resp.name, resp.internID, resp.email, resp.school);
             console.log(`This is the Intern: ${intern}`);
             myTeam.push(intern);
-            console.log(myTeam);
             optionsList();
         })
 }
@@ -160,6 +157,6 @@ function optionsList() {
 function createHTML(fileName, data) {
     fs.writeFile(fileName, data, (error) => {
         if(error) throw error;
-        console.log("Team page is being made!");
+        console.log("Team is being populated!");
     })
 }
