@@ -34,8 +34,10 @@ function createManagerProfile(manager){
 return `
     <div class="card" style="width: 18rem;">
         <div class="card-body">
-            <h5 class="card-title">${manager.name}</h5>
-            <h6 class="card-subtitle mb-2 text-muted manager">Manager</h6>
+            <div class="title-section">
+                <h5 class="card-title">${manager.name}</h5>
+                <h6 class="card-subtitle mb-2 manager">Manager</h6>
+            </div>
             <ul class="list-group list-group-flush">
                 <li class="list-group-item">ID: ${manager.id}</li>
                 <li class="list-group-item">E-mail: <a href="mailto:${manager.email}" class="card-link">${manager.email}</a></li>
@@ -49,8 +51,11 @@ function createEngineerProfile(engineer){
     return `
     <div class="card" style="width: 18rem;">
         <div class="card-body">
-            <h5 class="card-title">${engineer.name}</h5>
-            <h6 class="card-subtitle mb-2 text-muted engineer">Engineer</h6>
+            <div class="title-section">
+            
+                <h5 class="card-title">${engineer.name}</h5>
+                <h6 class="card-subtitle mb-2 engineer">Engineer</h6>
+            </div>
             <ul class="list-group list-group-flush">
                 <li class="list-group-item">ID: ${engineer.id}</li>
                 <li class="list-group-item">E-mail: <a href="mailto:${engineer.email}" class="card-link">${engineer.email}</a></li>
@@ -64,8 +69,10 @@ function createInternProfile(intern){
     return `
     <div class="card" style="width: 18rem;">
         <div class="card-body">
-            <h5 class="card-title">${intern.name}</h5>
-            <h6 class="card-subtitle mb-2 text-muted intern">Intern</h6>
+            <div class="title-section">
+                <h5 class="card-title">${intern.name}</h5>
+                <h6 class="card-subtitle mb-2 intern">Intern</h6>
+            </div>
             <ul class="list-group list-group-flush">
                 <li class="list-group-item">ID: ${intern.id}</li>
                 <li class="list-group-item">E-mail: <a href="mailto:${intern.email}" class="card-link">${intern.email}</a></li>
@@ -96,8 +103,8 @@ const generateSite = function (myTeamProfiles) {
         <header class="container-fluid">
             <h1>My Teams Profile</h1>
         </header>
-
-        <main class="container-fluid">
+        <br />
+        <main class="container-fluid d-flex justify-content-start">
             ${myTeamProfiles}
         </main>
 

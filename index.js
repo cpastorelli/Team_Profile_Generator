@@ -149,13 +149,13 @@ function optionsList() {
                     createInternProfile();
                     break;
                 case "My team is complete.":
-                    createHTML("index.html", createTeamSite(myTeam));
+                    createHTML(createTeamSite(myTeam));
             }
         })
 }
 
-function createHTML(fileName, data) {
-    fs.writeFile(fileName, data, (error) => {
+function createHTML(data) {
+    fs.writeFile('./dist/index.html', data, (error) => {
         if(error) throw error;
         console.log("Team is being populated!");
     })

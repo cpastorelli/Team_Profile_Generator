@@ -1,0 +1,27 @@
+h6 {
+    color: black;
+}
+
+
+header {
+    background-color: rgb(240, 231, 200);
+    height: 15vh;
+    text-align: center;
+    padding-top: 20px;
+}
+
+.card {
+    margin: 1%;
+}
+
+.card-body {
+    background-color: rgb(212, 211, 211);
+}
+
+.title-section {
+    background-color: rgb(133, 137, 211);
+    color: black;
+} 
+
+
+
