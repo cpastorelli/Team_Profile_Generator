@@ -1,6 +1,9 @@
 # Team Profile Generator
 
 ## About This Project
+
+![TeamProfile](./dist/teamProfiles.png)
+
 This project is to streamline the ability to make a Team Profile page by inputting the teams information in a command line interface (CLI). Once the information for the team is filled out, the user may select the option that they are done with their team, and an index.html page will be generated, creating the site for their team. 
 
 To run the program:
