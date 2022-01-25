@@ -9,7 +9,7 @@ npm i
 node index.js
 ```
 Video Demonstration: 
-[Video Demonstrating Program Use]()
+[Video Demonstrating Program Use](https://www.screencast.com/t/0rWVuYDBVF)
 
 ## Built With
 - HTML
