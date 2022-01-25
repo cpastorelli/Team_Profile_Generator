@@ -4,10 +4,11 @@
   "description": "",
   "main": "index.js",
   "directories": {
-    "lib": "lib"
+    "lib": "lib",
+    "test": "test"
   },
   "scripts": {
-    "test": "node jest"
+    "test": "jest --verbose test/*"
   },
   "repository": {
     "type": "git",
